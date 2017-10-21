@@ -35,9 +35,15 @@ public class MemberRestController {
         return membersRepository.findAll();
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    @RequestMapping(
+            value = "/user",
+            method = RequestMethod.POST,
+            consumes = {"application/json"},
+            produces = { "application/json"}
+    )
+    @ResponseBody
     public Member getMemberbyUserNameAndRetrieveId(@RequestBody Member member){
-        log.info("Member Recieved : " +  member.toString() );
+        log.info("Member Recieved : " +  member.getKeycloakId() );
         member.setId(null);
         // retrieve Mlab Id by userName ( would have been better by keycloakId )
         Member memberWithId = membersRepository.findByUserName(member.getUserName());
@@ -52,8 +58,13 @@ public class MemberRestController {
         return newMember;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(
+            value = "/{id}",
+            method = RequestMethod.GET,
+            produces = { "application/json"}
+            )
     public Member getMember(@PathVariable String id) {
+        log.info("Get Member : " +  id );
         return membersRepository.findOne(id);
     }
 
