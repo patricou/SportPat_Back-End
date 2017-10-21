@@ -8,7 +8,6 @@ import com.pat.domain.FileUploaded;
 import com.pat.domain.Member;
 import com.pat.repo.EvenementsRepository;
 import com.pat.repo.MembersRepository;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +22,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import java.io.File;
-import java.io.FileInputStream;
 
 
 /**
@@ -43,7 +39,7 @@ public class FileRestController {
 
     private static final Logger log = LoggerFactory.getLogger(FileRestController.class);
 
-    @RequestMapping( value = "/api/file/{fileId}", method = RequestMethod.GET,  produces = "application/pdf"  )
+    @RequestMapping( value = "/api/file/{fileId}", method = RequestMethod.GET )
     public ResponseEntity< InputStreamResource> getFile(@PathVariable String fileId){
 
         // retrieve the file in MongoDB

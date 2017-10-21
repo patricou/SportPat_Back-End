@@ -33,6 +33,8 @@ public class Evenement {
     @NotNull
     private String map;
     @NotNull
+    private String photosUrl;
+    @NotNull
     private String comments;
     @NotNull
     private Date endEventDate;
@@ -210,6 +212,14 @@ public class Evenement {
 
     public void setRatingMinus(Integer ratingMinus) {
         this.ratingMinus = ratingMinus;
+    }
+
+    public String getPhotosUrl() {
+        return photosUrl;
+    }
+
+    public void setPhotosUrl(String photosUrl) {
+        this.photosUrl = photosUrl;
     }
 }
 
