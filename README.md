@@ -1,4 +1,4 @@
-## SPORTS ORGANIZER Web Application ( Back-End part).
+## EVENTS ORGANIZER Web Application ( Back-End part).
 This Web Application allows to everybody to create sportives events.
 
 <a href="https://182-193-28-81.ftth.cust.kwaoo.net:8000/">Test here. </a>
